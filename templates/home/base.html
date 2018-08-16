@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-123177065-1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'UA-123177065-1');
+    </script>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    {% block meta %}
+        <title>Thrink, 지식을 마시다</title>
+        <meta property="og:title" id="meta-title" content="">
+        <meta property="og:description" id="meta-content" content="">
+        <meta property="og:image" id="meta-image" content="">
+
+        <meta property="twitter:title" id="meta-title" content="">
+        <meta property="twitter:description" id="meta-content" content="">
+        <meta name="description" content="">
+        <meta name="robots" content="index">
+        <meta property="twitter:image" id="meta-image" content="">
+    {% endblock %}
+
+    {% block baseJs %}
+        <!-- axios -->
+        <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
+        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+        <script src="https://unpkg.com/popper.js@1.12.6/dist/umd/popper.js" integrity="sha384-fA23ZRQ3G/J53mElWqVJEGJzU0sTs+SvzG8fXVWP+kJQ1lwFAOkcUOysnlKJC33U" crossorigin="anonymous"></script>
+        <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+        <!-- SnackbarJS plugin -->
+        <script src="https://cdn.rawgit.com/FezVrasta/snackbarjs/1.1.0/dist/snackbar.min.js"></script>
+
+        <script src="https://unpkg.com/bootstrap-material-design@4.1.1/dist/js/bootstrap-material-design.js" integrity="sha384-CauSuKpEqAFajSpkdjv3z9t8E7RlpJ1UP0lKM/+NdtSarroVKu069AlsRPKkFBz9" crossorigin="anonymous"></script>
+    {% endblock %}
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/css/bootstrap.min.css" integrity="sha384-Smlep5jCw/wG7hdkwQ/Z5nLIefveQRIY9nfy6xoR1uRYBtpZgI6339F5dgvm/e9B" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Material+Icons">
+    <link href='https://cdn.rawgit.com/FezVrasta/snackbarjs/1.1.0/dist/snackbar.min.css' rel='stylesheet' type='text/css'>
+    <link href='https://cdn.rawgit.com/openhiun/hangul/14c0f6faa2941116bb53001d6a7dcd5e82300c3f/nanumbarungothic.css' rel='stylesheet' type='text/css'>
+
+    {% block baseCss %}
+        <link rel="stylesheet" href="https://unpkg.com/bootstrap-material-design@4.1.1/dist/css/bootstrap-material-design.min.css" integrity="sha384-wXznGJNEXNG1NFsbm0ugrLFMQPWswR3lds2VeinahP8N0zJw9VWSopbjv2x7WCvX" crossorigin="anonymous">
+    {% endblock %}
+    {% load static %}
+    <link rel="stylesheet" href="{% static "css/waitMe.min.css" %}"/>
+    <link rel="stylesheet" href="{% static "css/base.css" %}"/>
+    <link rel="stylesheet" href="{% static "css/nav.css" %}"/>
+    {% block appCss %}
+    {% endblock %}
+</head>
+<body class="bg-white">
+<div id="_token" class="d-none" token="{{ request.session.token }}"></div>
+<!-- Nav -->
+{% include "home/nav.html" %}
+<!-- End Nav -->
+{% block mainContent %}
+{% endblock %}
+
+{% include "home/footer.html" %}
+</body>
+
+{% load static %}
+<script src="{% static 'js/waitMe.min.js' %}"></script>
+<script src="{% static 'js/amplify.min.js' %}"></script>
+<script src="{% static 'js/base.js' %}"></script>
+<script>
+    $('body').bootstrapMaterialDesign();
+    var csrf_token = '{{ csrf_token }}';
+</script>
+{% block navJs %}
+{% endblock %}
+
+{% block appJs %}
+{% endblock %}
+
+</html>

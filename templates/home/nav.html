@@ -1,0 +1,22 @@
+<div class="container-fluid">
+    <nav class="navbar navbar-light bg-white mt-4 px-5 px-0-xs">
+        <a class="navbar-brand" href="/">
+            {% load static %}
+            <img src="{% static 'image/logo.png' %}" class="t-logo">
+        </a>
+        <div class="">
+            {% if not request.session.login %}
+                <button class="b-on-md nav-btn btn tn-btn my-2 my-sm-0 px-4 bg-white font-weight-bold" data-toggle="modal" data-target="#loginModal">로그인</button>
+            {% else %}
+                <div class="dropdown btn">
+                    <button class="nav-btn btn tn-btn my-2 my-sm-0 px-4 bg-white font-weight-bold" id="nav-username" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Thrink
+                    </button>
+                    <div class="dropdown-menu" aria-labelledby="nav-username">
+                        <a class="dropdown-item " href="/logout/" id="logout">로그아웃</a>
+                    </div>
+                </div>
+            {% endif %}
+        </div>
+    </nav>
+</div>

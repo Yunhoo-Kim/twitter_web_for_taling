@@ -1,0 +1,50 @@
+.navbar {
+    box-shadow: none !important;
+}
+.pro-register-btn {
+    color: #74ccf4;
+    background-color: transparent;
+    border: 1px solid #979797;
+    border-radius: .3rem;
+}
+.t-logo {
+    width: 8rem;
+    height: auto;
+}
+.tn-btn {
+    font-size: 1.3rem;
+}
+.navbar-brand {
+    margin-top: -15px;
+}
+.nav-btn {
+
+}
+#logout {
+    color: #979797;
+    background-color: transparent;
+    border: 1px solid #979797;
+    border-radius: .3rem;
+}
+.dropdown:hover {
+    background-color:white;
+}
+.dropdown:hover>.dropdown-menu {
+    display: block;
+    opacity: 1;
+    transform: scale(1);
+}
+.dropdown-menu {
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: none;
+    min-width: 7rem;
+    left: 1.5rem;
+    margin: 0;
+}
+
+@media (max-width: 576px) {
+    .pro-register-btn, .signup-btn {
+        min-width: 11rem;
+    }
+}

@@ -1,0 +1,51 @@
+#pro-img {
+    min-width: 17rem;
+    min-height: 13rem;
+    max-width: 17rem;
+    max-height: 13rem;
+    background-color: black;
+    -webkit-border-radius: .3rem;
+    -moz-border-radius: .3rem;
+    border-radius: .3rem;
+}
+.ex-content>button {
+    background-color: white;
+    color: #74ccf4;
+    border: none;
+    font-size: 1.2rem;
+}
+.content-subj {
+    font-size: 1.2rem;
+}
+.revise-btn {
+    color: #74ccf4;
+}
+.input-group-prepend {
+    width: 10rem;
+}
+#register-content {
+    color: #74ccf4;
+    font-size: 1.2rem;
+}
+.content-date-select {
+    height: unset;
+    color: #74ccf4 !important;
+    font-weight: 700!important;
+}
+
+.note-btn-group {
+    padding: .15rem;
+    margin-bottom: 0 !important;
+}
+.note-toolbar {
+    /*text-align: left;*/
+    /*padding: 5px !important;*/
+}
+.note-editable {
+    padding: 1.5rem !important;
+    /*line-height: 0.5 !important;*/
+}
+
+.note-stylebtn, .note-imgbtn {
+    margin-left: 0.9rem !important;
+}
