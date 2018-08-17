@@ -16,6 +16,15 @@ class IndexView(View):
         return render(request, self.template_name, {})
 
 
+class UserPageView(View):
+
+    def __init__(self):
+        self.template_name = "user/page.html"
+
+    def get(self, request, pk):
+        return render(request, self.template_name, {"user_id": pk})
+
+
 class LoginView(View):
 
     def __init__(self):

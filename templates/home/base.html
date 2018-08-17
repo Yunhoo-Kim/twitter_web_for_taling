@@ -66,6 +66,108 @@
 {% endblock %}
 
 {% include "home/footer.html" %}
+
+{% if not request.session.login %}
+    <!-- Signup Modal -->
+    <div class="modal" id="signUpModal" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content shadow">
+                <div class="modal-body mx-4 px-0 pt-5">
+                    <form class="container-fluid px-0" id="signup-form">
+                        <div class="row mt-4">
+                            <div class="col-3 signup-title">
+                                성
+                            </div>
+                            <div class="col-9 px-0">
+                                <input type="text" id="signup-last-name" placeholder="홍" class="signup-input">
+                            </div>
+                        </div>
+                        <div class="row mt-4">
+                            <div class="col-3 signup-title">
+                                이름
+                            </div>
+                            <div class="col-9 px-0">
+                                <input type="text" id="signup-first-name" placeholder="길동" class="signup-input">
+                            </div>
+                        </div>
+                        <div class="row mt-4">
+                            <div class="col-3 signup-title">
+                                E-mail
+                            </div>
+                            <div class="col-9 px-0">
+                                <input type="email" id="signup-email" placeholder="thrink@thrink.co.kr" class="signup-input">
+                            </div>
+                        </div>
+                        <div class="row mt-4">
+                            <div class="col-3 signup-title">
+                                비밀번호
+                            </div>
+                            <div class="col-9 px-0">
+                                <input type="password" id="signup-password" placeholder="8자 이상(소대문자, 특수문자, 숫자 조합)" class="signup-input">
+                            </div>
+                        </div>
+                        {#                            <div class="row mt-4">#}
+                        {#                                <div class="col-3 signup-title">#}
+                        {#                                    휴대전화#}
+                        {#                                </div>#}
+                        {#                                <div class="col-9 px-0">#}
+                        {#                                    <input type="text" id="signup-phone" placeholder="01031641055(-없이)" class="signup-input">#}
+                        {#                                    <button id="phone-code-send" type="button">인증번호 받기</button>#}
+                        {#                                </div>#}
+                        {#                            </div>#}
+                        {#                            <div class="row mt-4">#}
+                        {#                                <div class="col-3 signup-title">#}
+                        {#                                    인증번호#}
+                        {#                                </div>#}
+                        {#                                <div class="col-9 px-0">#}
+                        {#                                    <input type="text" id="signup-phone-code" pattern="\d{1,6}" placeholder="000000" class="signup-input">#}
+                        {#                                </div>#}
+                        {#                            </div>#}
+                        <div class="my-5 text-center">
+                            <button class="btn btn-lg signup-btn font-weight-bold" id="signup" type="submit">가입하기</button>
+                        </div>
+                    </form>
+                    <div class="mt-3 text-center">
+                        회원가입 시 <a href="#">이용약관</a>·<a href="#">개인정보보호방침</a>·<a href="#">이용료정책</a>에 동의하는 것으로 간주합니다.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Login Modal -->
+    <div class="modal" id="loginModal" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content shadow">
+                <div class="modal-body mx-3 px-0 pt-5">
+                    <form class="container-fluid px-0" id="login-form">
+                        <div class="row mt-4">
+                            <div class="col-3 signup-title">
+                                E-mail
+                            </div>
+                            <div class="col-9 px-0">
+                                <input type="email" id="login-email" class="login-input">
+                            </div>
+                        </div>
+                        <div class="row mt-4">
+                            <div class="col-3 signup-title">
+                                비밀번호
+                            </div>
+                            <div class="col-9 px-0">
+                                <input type="password" id="login-password" class="login-input">
+                            </div>
+                        </div>
+                        <div class="mt-5 text-center">
+                            <button class="btn btn-lg signup-btn font-weight-bold" id="login" type="submit" role="button">로그인</button>
+                        </div>
+                        <div class="my-3 text-center">
+                            <a class="" id="signup-in-login">회원가입</a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endif %}
 </body>
 
 {% load static %}

@@ -1,0 +1,27 @@
+{% extends "home/base.html" %}
+
+{% block mainContent %}
+    <div class="container">
+        <div class="card">
+            <img class="card-img-top" src="/static/image/cover1.jpg" alt="Card image cap">
+            <div class="card-body">
+                <h2 class="card-title" id="username" style="font-size:xx-large !important;font-weight:700;">Name</h2>
+            </div>
+            <div class="card-body" style="height: inherit">
+            <div id="tweet-container"></div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block appCss %}
+    {% load static %}
+    <link rel="stylesheet" href='{% static "css/index.css" %}'/>
+{% endblock %}
+{% block appJs %}
+    <script>
+    var user_id = "{{ user_id }}";
+    </script>
+    {% load static %}
+    <script src='{% static "js/userpage.js" %}'></script>
+{% endblock %}

@@ -115,6 +115,27 @@ if (!String.prototype.format) {
   };
 }
 
+function addTweet(data){
+
+    var $_d = $('<div class="card col-md-6 col-12 offset-md-3">'
+        + '<div class="card-header text-main">'
+        + data.user_name
+        + '</div>'
+        + '<div class="card-body">'
+        + '<p class="card-text">'
+        + data.content
+        + '</p>'
+        + '</div>'
+        + '<div class="card-footer text-right text-muted">'
+        +  data.date_add
+        + '</div>'
+        + '</div>');
+    $_d.click(function() {
+        window.location.href = "/user/{0}/".format(data.user);
+    });
+
+    $("#tweet-container").append($_d);
+}
 function stopLoader(){
     $("body").waitMe("hide");
 }

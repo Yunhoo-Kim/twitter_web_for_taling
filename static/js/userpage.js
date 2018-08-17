@@ -93,18 +93,19 @@ $("#login").click(function() {
             console.log(error);
         })
 });
-function getTweetList(){
+function getTweetList(user_id){
     runLoader("트윗 불러오는중.");
-    axios.get(api_url + "/tweet/list/", {
+    axios.get(api_url + "/user/{0}/".format(user_id), {
        headers: _getAuthHeader()
     })
         .then(function(response){
-            var tweets = response.data.tweets;
+            $(".card-img-top").attr("src", "/static/image/cover{0}.jpg".format(parseInt((Math.random()* 100000000 )% 5) +1));
+            $("#username").text("{0}{1}".format(response.data.data.last_name, response.data.data.first_name));
+            var tweets = response.data.data.tweet;
 
             for(var i in tweets){
                 addTweet(tweets[i]);
             }
-
         })
         .catch(function(error){
             console.log(error);
@@ -133,29 +134,4 @@ function registerSession(token){
         });
 }
 
-function writeTweet(){
-    runLoader();
-
-    var content = $("#tweet-content").val();
-    axios.post(api_url + "/tweet/write/", {
-            content: content,
-            user: 1
-        },
-        {
-            headers: _getAuthHeader()
-        })
-        .then(res => {
-            addTweet(res.data);
-            location.reload(true);
-        })
-        .catch(err => {
-            console.log("error");
-        })
-        .then(function(){
-            stopLoader();
-        })
-
-}
-
-$("#write-tweet").click(writeTweet);
-getTweetList();
+getTweetList(user_id);
