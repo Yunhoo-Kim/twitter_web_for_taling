@@ -93,6 +93,45 @@ $("#login").click(function() {
             console.log(error);
         })
 });
+function getTweetList(){
+    runLoader("트윗 불러오는중.");
+    axios.get(api_url + "/tweet/list/", {
+       headers: _getAuthHeader()
+    })
+        .then(function(response){
+            var tweets = response.data.result.tweets;
+
+            for(var i in tweets){
+                addTweet(tweets[i]);
+            }
+
+        })
+        .catch(function(error){
+            console.log(error);
+        })
+        .then(function(){
+            stopLoader();
+        });
+}
+
+function addTweet(data){
+
+    var _d = '<div class="card col-md-6 col-12 offset-md-3">'
+        + '<div class="card-header text-main">'
+        + data.user_name
+        + '</div>'
+        + '<div class="card-body">'
+        + '<p class="card-text">'
+        + data.content
+        + '</p>'
+        + '</div>'
+        + '<div class="card-footer text-right text-muted">'
+        +  data.date_add
+        + '</div>'
+        + '</div>';
+
+    $("#tweet-container").append(_d);
+}
 
 function registerSession(token){
     axios.defaults.xsrfCookieName = 'csrftoken';
@@ -113,3 +152,4 @@ function registerSession(token){
 }
 
 
+getTweetList();

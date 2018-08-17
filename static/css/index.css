@@ -6,22 +6,12 @@
 }
 
 .card {
-    height: 22.5rem;
-    width: 17rem;
     border-radius: .75rem;
     margin-top: 1.3rem;
     margin-bottom: 1.3rem;
     border: 1px solid rgba(0,0,0,.225);
 }
 
-.card .card-img-top {
-    max-height: 12.5rem;
-    min-height: 12.5rem;
-    background-size: cover;
-    background-position: center center;
-    border-top-left-radius: calc(.75rem - 1px);
-    border-top-right-radius: calc(.75rem - 1px);
-}
 .card .card-body {
     height: 10rem;
     overflow-y: hidden;

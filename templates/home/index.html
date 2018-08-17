@@ -3,12 +3,11 @@
 {% block mainContent %}
     <div class="container">
         <div class="jumbotron bg-white text-center py-3 px-0">
-            <h1 class="display-2 font-weight-bold">지식을 마시다!</h1>
+            <h1 class="display-2 font-weight-bold" style="color: #00aaff;">가짜 트위터!</h1>
             <br>
             <br>
             <br>
-            <p>Thrink는 우리에게 물과 같이 빠르게 마실 수 있는 영양소가 풍부한 지식을 전달합니다.</p>
-            <p>각 분야 전문가의 지식을 정기적으로 받아 마실 수 있는 지식 정기 구독 플랫폼 Thrink!</p>
+            <p>교육을 위해 만든 사이트입니다. 임의로 사용하지 말아주세요.</p>
             <br>
             {% if not request.session.login %}
                 <div class="col-12">
@@ -27,66 +26,26 @@
     <div class="container card-container pb-5">
         <div class="row">
             <div class="col-12 text-center mb-4">
-                <p class="h5">회원가입 시 각 프로들의 지식을 2 건 무료로 마실 수 있습니다.</p>
+                <textarea class="col-md-6 col-12" style="min-height: 200px;outline:none;"></textarea>
             </div>
-        </div>
-        <div class="row px-1 px-md-5">
-            <div class="col-12 row px-1 px-md-5 mx-auto">
-                <div class="col-md-4 text-center">
-                    <div class="card shadow-sm mx-auto">
-                        <div class="card-img-top" style="background-image: url(https://file.paytime.co.kr/cover/DXMNK3FSB2kN9OvgRAVzXjztUSvKw95t_1528265033_7083752.jpg)">
-                        </div>
-                        <div class="card-body">
-                            <h5 class="card-title font-weight-bold">송인희 프로</h5>
-                            <p class="card-category">스타트업에 대하여</p>
-                            <p class="card-subscribers">구독자 10명</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4 text-center">
-                    <div class="card shadow-sm mx-auto">
-                        <div class="card-img-top" style="background-image: url(https://file.paytime.co.kr/cover/DXMNK3FSB2kN9OvgRAVzXjztUSvKw95t_1528265033_7083752.jpg)">
-                        </div>
-                        <div class="card-body">
-                            <h5 class="card-title font-weight-bold">송인희 프로</h5>
-                            <p class="card-category">스타트업에 대하여</p>
-                            <p class="card-subscribers">구독자 10명</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4 text-center">
-                    <div class="card shadow-sm mx-auto">
-                        <div class="card-img-top" style="background-image: url(https://file.paytime.co.kr/cover/DXMNK3FSB2kN9OvgRAVzXjztUSvKw95t_1528265033_7083752.jpg)">
-                        </div>
-                        <div class="card-body">
-                            <h5 class="card-title font-weight-bold">송인희 프로</h5>
-                            <p class="card-category">스타트업에 대하여</p>
-                            <p class="card-subscribers">구독자 10명</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4 text-center">
-                    <div class="card shadow-sm mx-auto">
-                        <div class="card-img-top" style="background-image: url(https://file.paytime.co.kr/cover/DXMNK3FSB2kN9OvgRAVzXjztUSvKw95t_1528265033_7083752.jpg)">
-                        </div>
-                        <div class="card-body">
-                            <h5 class="card-title font-weight-bold">송인희 프로</h5>
-                            <p class="card-category">스타트업에 대하여</p>
-                            <p class="card-subscribers">구독자 10명</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4 text-center">
-                    <div class="card shadow-sm mx-auto">
-                        <div class="card-img-top" style="background-image: url(https://file.paytime.co.kr/cover/DXMNK3FSB2kN9OvgRAVzXjztUSvKw95t_1528265033_7083752.jpg)">
-                        </div>
-                        <div class="card-body">
-                            <h5 class="card-title font-weight-bold">송인희 프로</h5>
-                            <p class="card-category">스타트업에 대하여</p>
-                            <p class="card-subscribers">구독자 10명</p>
-                        </div>
-                    </div>
-                </div>
+            <div class="col-12 text-center mb-4">
+                <button class="btn btn-primary">트윗 올리기</button>
+            </div>
+            <div class="col-12 text-center mb-4">
+                <p class="h5">트윗</p>
+            </div>
+            <div class="col-12 mt-4 mb-4" id="tweet-container">
+{#                <div class="card col-md-6 col-12 offset-md-3">#}
+{#                    <div class="card-header">#}
+{#                       Name#}
+{#                    </div>#}
+{#                    <div class="card-body">#}
+{#                        <p class="card-text">야야양야야야야양야야야야야야 아니야 아니야 아니야 아니야 아니야 아니야</p>#}
+{#                    </div>#}
+{#                    <div class="card-footer text-right text-muted">#}
+{#                        2 days ago#}
+{#                    </div>#}
+{#                </div>#}
             </div>
         </div>
     </div>
@@ -130,23 +89,23 @@
                                     <input type="password" id="signup-password" placeholder="8자 이상(소대문자, 특수문자, 숫자 조합)" class="signup-input">
                                 </div>
                             </div>
-{#                            <div class="row mt-4">#}
-{#                                <div class="col-3 signup-title">#}
-{#                                    휴대전화#}
-{#                                </div>#}
-{#                                <div class="col-9 px-0">#}
-{#                                    <input type="text" id="signup-phone" placeholder="01031641055(-없이)" class="signup-input">#}
-{#                                    <button id="phone-code-send" type="button">인증번호 받기</button>#}
-{#                                </div>#}
-{#                            </div>#}
-{#                            <div class="row mt-4">#}
-{#                                <div class="col-3 signup-title">#}
-{#                                    인증번호#}
-{#                                </div>#}
-{#                                <div class="col-9 px-0">#}
-{#                                    <input type="text" id="signup-phone-code" pattern="\d{1,6}" placeholder="000000" class="signup-input">#}
-{#                                </div>#}
-{#                            </div>#}
+                            {#                            <div class="row mt-4">#}
+                            {#                                <div class="col-3 signup-title">#}
+                            {#                                    휴대전화#}
+                            {#                                </div>#}
+                            {#                                <div class="col-9 px-0">#}
+                            {#                                    <input type="text" id="signup-phone" placeholder="01031641055(-없이)" class="signup-input">#}
+                            {#                                    <button id="phone-code-send" type="button">인증번호 받기</button>#}
+                            {#                                </div>#}
+                            {#                            </div>#}
+                            {#                            <div class="row mt-4">#}
+                            {#                                <div class="col-3 signup-title">#}
+                            {#                                    인증번호#}
+                            {#                                </div>#}
+                            {#                                <div class="col-9 px-0">#}
+                            {#                                    <input type="text" id="signup-phone-code" pattern="\d{1,6}" placeholder="000000" class="signup-input">#}
+                            {#                                </div>#}
+                            {#                            </div>#}
                             <div class="my-5 text-center">
                                 <button class="btn btn-lg signup-btn font-weight-bold" id="signup" type="submit">가입하기</button>
                             </div>

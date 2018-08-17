@@ -69,7 +69,7 @@ function dataURItoBlob(dataURI) {
 
 function _getAuthHeader(){
     if(login)
-        return {"Authorization" : "Thrink " + _t};
+        return {"Authorization" : "JWT " + _t};
     else
         return {};
 }
@@ -79,7 +79,7 @@ if(window.location.href.indexOf("/pro/register") > -1){
 }
 
 function _getUserData(){
-    return axios.get(api_url + '/ui/',
+    return axios.get(api_url + '/user/',
         {
             headers: _getAuthHeader()
         })
