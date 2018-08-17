@@ -3,7 +3,7 @@
 {% block mainContent %}
     <div class="container">
         <div class="jumbotron bg-white text-center py-3 px-0">
-            <h1 class="display-2 font-weight-bold" style="color: #00aaff;">가짜 트위터!</h1>
+            <h1 class="display-2 font-weight-bold text-main">가짜 트위터!</h1>
             <br>
             <br>
             <br>
@@ -25,12 +25,14 @@
     <hr class="my-5 t-bc">
     <div class="container card-container pb-5">
         <div class="row">
+            {% if request.session.login %}
             <div class="col-12 text-center mb-4">
-                <textarea class="col-md-6 col-12" style="min-height: 200px;outline:none;"></textarea>
+                <textarea id="tweet-content" class="col-md-6 col-12" style="min-height: 200px;outline:none;"></textarea>
             </div>
             <div class="col-12 text-center mb-4">
-                <button class="btn btn-primary">트윗 올리기</button>
+                <button class="btn btn-primary" id="write-tweet">트윗 올리기</button>
             </div>
+            {% endif %}
             <div class="col-12 text-center mb-4">
                 <p class="h5">트윗</p>
             </div>

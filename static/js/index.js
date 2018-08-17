@@ -24,13 +24,13 @@ $("#signup").click(function(event) {
         password: password
     })
         .then(function(response){
-            if(response.data.result.code == 0){
+            if(response.data.code == 0){
                 $.snackbar({content: "회원가입이 완료되었습니다. 로그인 해주세요."});
                 $("#signUpModal").modal("hide");
                 $(".modal-backdrop").remove();
                 $("#loginModal").modal("show");
                 return;
-            }else if(response.data.result.code == 1){
+            }else if(response.data.code == 1){
                 $.snackbar({content: "인증번호가 일치하지 않습니다."});
                 $("#signup-phone-code").select();
                 return;
@@ -67,20 +67,20 @@ $("#login").click(function() {
         password: password
     })
         .then(function(response) {
-            if(response.data.result.code == 999){
-                var token = response.data.result.token;
+            if(response.data.code == 999){
+                var token = response.data.token;
                 registerSession(token).
                 then(res => {
-                    amplify.store("user_info", response.data.result.user_info);
+                    amplify.store("user_info", null);
                     amplify.store("login", true);
                     location.reload();
                 });
             }
-            else if(response.data.result.code == 1){
+            else if(response.data.code == 1){
                 $.snackbar({content: "존재하지 않는 이메일입니다."});
                 $("#login-email").select();
             }
-            else if(response.data.result.code == 2 ){
+            else if(response.data.code == 2 ){
                 $.snackbar({content: "비밀번호가 일치하지 않습니다."});
                 $("#login-password").select();
             }
@@ -99,7 +99,7 @@ function getTweetList(){
        headers: _getAuthHeader()
     })
         .then(function(response){
-            var tweets = response.data.result.tweets;
+            var tweets = response.data.tweets;
 
             for(var i in tweets){
                 addTweet(tweets[i]);
@@ -151,5 +151,29 @@ function registerSession(token){
         });
 }
 
+function writeTweet(){
+    runLoader();
 
+    var content = $("#tweet-content").val();
+    axios.post(api_url + "/tweet/write/", {
+            content: content,
+            user: 1
+        },
+        {
+            headers: _getAuthHeader()
+        })
+        .then(res => {
+            addTweet(res.data);
+            location.reload(true);
+        })
+        .catch(err => {
+            console.log("error");
+        })
+        .then(function(){
+            stopLoader();
+        })
+
+}
+
+$("#write-tweet").click(writeTweet);
 getTweetList();

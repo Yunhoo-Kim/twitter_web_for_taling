@@ -32,10 +32,8 @@ if(login){
     }
     else {
         getUserData(false).then(res => {
-                $("#nav-username").text(res.last_name + res.first_name);
-                $(".username").text(res.last_name + res.first_name);
-                if(res.is_pro)
-                    $(".pro-register-btn").remove();
+                $("#nav-username").text(res.last_name + " " +  res.first_name);
+                $(".username").text(res.last_name + " " + res.first_name);
             }
         )
     }
@@ -84,8 +82,8 @@ function _getUserData(){
             headers: _getAuthHeader()
         })
         .then(response => {
-            amplify.store("user_info", response.data.result.data);
-            return response.data.result.data;
+            amplify.store("user_info", response.data.data);
+            return response.data.data;
         })
         .catch(err => {
             console.log(err);
